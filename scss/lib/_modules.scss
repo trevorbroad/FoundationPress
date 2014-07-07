@@ -1,0 +1,45 @@
+/**
+ * Created with JetBrains RubyMine.
+ * User: trevor
+ * Date: 2013-08-28
+ * Time: 3:30 PM
+ *
+ * The following is the module library from the Mogo style guide
+ *
+ */
+
+
+/* boxes */
+@mixin module {
+  @include border-radius(3px);
+  padding:15px;
+}
+
+.black_module {
+  @include module;
+  background-color:$heavyGray;
+  padding:15px 20px 20px 20px;
+
+  hr{
+    margin: 0.5em 0;
+    border-top: 1px solid $mediumGray;
+  }
+
+  a {
+    color: $blue;
+  }
+}
+
+.faintGray_module {
+  @include module;
+  background-color:$faintGray;
+  padding:15px 20px 20px 20px;
+  border:1px solid $lightGray;
+}
+
+.smart-alert {
+  @include border-radius(5px);
+  border: 2px solid $green;
+  padding: 30px 20px 20px 20px;
+}
+

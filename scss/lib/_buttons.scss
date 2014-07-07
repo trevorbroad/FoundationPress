@@ -1,0 +1,227 @@
+/**
+ * Created with JetBrains RubyMine.
+ * User: trevor
+ * Date: 2013-08-28
+ * Time: 3:30 PM
+ *
+ * This is the library of buttons for the Mogo style guide
+ * The mixins separate base-styles with class-variations based on size, color, and icon
+ *
+ * Some example uses of implementing one of these buttons would be
+ * .large_button.pink_button.card
+ * .small_button.black_button.hollow_arrow
+ *
+ */
+
+$button-text:             $white;
+$button-large-padding:    6px 12px 8px 12px;
+$button-large-right-icon: 6px 32px 8px 12px;
+$button-small-padding:    5px 12px;
+
+$desktop-large-font:      22px;
+$desktop-large-height:    28px;
+
+$desktop-medium-font:     18px;
+$desktop-medium-height:   26px;
+
+$desktop-small-font:      16px;
+$desktop-small-height:    24px;
+
+$mobile-large-font:       20px;
+$mobile-large-height:     28px;
+
+
+// Base settings
+
+@mixin base-button {
+  @include border-radius(3px);
+  @include base-headings;
+  white-space:nowrap;
+  display:inline-block;
+  cursor:pointer;
+  border: 0px;
+
+  &:hover{
+    @include fade(0.1s);
+    background-color:$heavyGray
+  }
+  &:visited {
+    color:$button-text;
+  }
+}
+
+// Resets
+input.button, button.button {
+  padding:$button-large-padding;
+  border:0;
+}
+button.disabled,
+button[disabled],
+.button.disabled,
+.button[disabled] {
+  background-color: $pink;
+  opacity:0.5;
+  filter:alpha(opacity=50); /* For IE8 and earlier */
+}
+
+
+// Responsive button sizes
+
+@media #{$screen} {
+
+  .large_button {
+    @include base-button;
+    padding:$button-large-padding;
+    font-size:$mobile-large-font;
+    line-height:$mobile-large-height;
+    width:100%;
+  }
+
+  .medium_button {
+    @include base-button;
+    padding:$button-large-padding;
+    font-size: $desktop-medium-font;
+    line-height:$desktop-medium-height;
+  }
+
+  .small_button {
+    @include base-button;
+    padding:$button-small-padding;
+    font-size:$desktop-small-font;
+    line-height:18px;
+  }
+
+}
+
+@media #{$small} {
+
+  .large_button {
+    @include base-button;
+    padding:$button-large-padding;
+    font-size:$desktop-large-font;
+    line-height:$desktop-large-height;
+    width:auto;
+
+    &.full-width {
+      width: 100%;
+      text-align: left;
+    }
+  }
+
+}
+
+
+// colours
+.pink-button {
+  background-color: $pink;
+  color:$button-text;
+}
+
+.pink-button:hover {
+  background-color:$black;
+  color:$button-text;
+}
+
+.green-button {
+  background-color:$green;
+  color:$button-text;
+}
+
+.green-button:hover {
+  background-color:$heavyGray;
+  color:$button-text;
+}
+
+.black-button {
+  background-color:$black;
+  color:$button-text;
+}
+
+.black-button:hover {
+  background-color:$heavyGray;
+  color:$button-text;
+}
+
+.white-button {
+  background-color:$white;
+  color:$black;
+}
+
+.hollow_arrow {
+  padding:$button-large-right-icon!important;
+}
+
+.solid_arrow{
+  padding-right:24px;
+
+  &:after {
+    font-family: 'MogoUI';
+    content: "\e80f";
+    position: relative;
+    left: 10px;
+    top: 2px;
+  }
+}
+
+.append_arrow {
+  font-family: 'MogoUI';
+  color:$white;
+  margin-left: -25px;
+  position: relative;
+  z-index: 1;
+  top: 2px;
+}
+
+/* Retro buttons */
+
+@mixin retro-style($color, $bg, $shadow, $hoverColor, $hoverBg, $hoverShadow) {
+  color: $color;
+  background-color: $bg;
+  box-shadow: 4px 4px 0px 0px $shadow;
+
+  &:hover {
+    color:$hoverColor;
+    background-color: $hoverBg!important;
+    box-shadow: 4px 4px 0px 0px $hoverShadow;
+  }
+}
+
+.retro {
+  font-family: $heading_fonts;
+  border:0;
+  font-size: 18px;
+  text-transform: uppercase;
+  padding: 8px 18px 6px;
+  margin: 0 auto 15px;
+  letter-spacing: 3px;
+  text-align: center;
+  display:inline-block;
+
+  &.white-green {
+    @include retro-style($black, $white, $neonGreen, $black, $neonGreen, $white);
+  }
+  &.white-pink {
+    @include retro-style($black, $white, $pink, $black, $pink, $white);
+  }
+  &.gray-pink {
+    @include retro-style($black, $faintGray, $pink, $black, $pink, $faintGray);
+  }
+  &.green-black {
+    @include retro-style($black, $neonGreen, $black, $white, $black, $neonGreen);
+  }
+  &.pink-black {
+    @include retro-style($white, $pink, $black, $white, $black, $pink);
+  }
+}
+
+// icons
+.card {
+  background: image-url('ui_sprites/ui_icons-set1.png') no-repeat scroll 10px -7px $pink;
+  padding-left:44px;
+}
+
+.money {
+  background: image-url('ui_sprites/ui_icons-set1.png') no-repeat scroll 10px -64px $green;
+  padding-left:38px;
+}
+

@@ -1,0 +1,43 @@
+/**
+ * Created with JetBrains RubyMine.
+ * User: trevor
+ * Date: 2013-11-08
+ * Time: 4:15 PM
+ * To change this template use File | Settings | File Templates.
+ */
+
+@mixin loan-slider($mainColor, $handleColor) {
+
+  &.ui-slider-horizontal {
+    @include border-radius(0);
+    background:$black;
+    border:none;
+
+    .ui-slider-range {
+      @include border-radius(0);
+      background:$mainColor;
+    }
+    .ui-slider-handle {
+      @include circle(
+        $size:    40px,
+        $colour:  $heavyGray,
+        $bg:      $white
+      );
+      border:5px solid $handleColor;
+      margin-top:-7px;
+      cursor:pointer;
+    }
+  }
+}
+
+.mini-slider-style {
+  @include loan-slider($miniOrange, $miniOrange);
+}
+
+.zip-slider-style {
+  @include loan-slider($zipRed, $zipRed);
+}
+
+.retro-slider-style {
+  @include loan-slider($neonGreen, $lightGray);
+}

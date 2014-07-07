@@ -1,0 +1,181 @@
+/**
+ * Created with JetBrains RubyMine.
+ * User: trevor
+ * Date: 2013-08-28
+ * Time: 3:30 PM
+ *
+ * This is the animation library of mixins for the Mogo style guide. It allows you to include an animation
+ * into your class without having to write out all the browser webkits every time. The variables allow you
+ * to customize parts of the mixin, such as speed of the animation, on a case-by-case basis
+ *
+ * An example use-case is adding a fade transition to an element's hover :pseudo
+ *
+ * .element:hover {
+ *   @import fade(0.25s);
+ * }
+ *
+ * Beautiful, isn't it?
+ *
+ */
+
+@mixin fade($time) {
+  -webkit-transition: all $time ease-in-out;
+  -moz-transition: all $time ease-in-out;
+  -o-transition: all $time ease-in-out;
+  -ms-transition: all $time ease-in-out;
+  transition: all $time ease-in-out;
+}
+
+@mixin img_fade($time) {
+  @include fade($time);
+  position:absolute;
+  left:0;
+
+  &.transparent {
+    opacity:0;
+  }
+}
+
+@mixin rotate($deg) {
+  transform: rotate($deg);
+  -ms-transform: rotate($deg);
+  -webkit-transform: rotate($deg);
+}
+
+
+.animated {
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes slideUp {
+  0% {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+
+  100% {
+    -webkit-transform: translateY(-313px);
+    transform: translateY(-313px);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  100% {
+    -webkit-transform: translateY(-313px);
+    -ms-transform: translateY(-313px);
+    transform: translateY(-313px);
+  }
+}
+
+.slideUp {
+  -webkit-animation-name: slideUp;
+  animation-name: slideUp;
+}
+
+
+.animated-80 {
+  -webkit-animation-duration: 8s ;
+  animation-duration: 8s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+}
+
+
+@-webkit-keyframes slideOutRight {
+  0% {
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+  }
+
+  15% {
+    -webkit-transform: translateX(33%);
+    transform: translateX(33%);
+  }
+
+  // pause
+  25% {
+    -webkit-transform: translateX(33%);
+    transform: translateX(33%);
+  }
+
+  40% {
+    -webkit-transform: translateX(66%);
+    transform: translateX(66%);
+  }
+
+  //pause
+  50% {
+    -webkit-transform: translateX(66%);
+    transform: translateX(66%);
+  }
+
+  75% {
+    -webkit-transform: translateX(170%);
+    transform: translateX(170%);
+  }
+
+  100% {
+    -webkit-transform: translateX(170%);
+    transform: translateX(170%);
+  }
+}
+
+@keyframes slideOutRight {
+  0% {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  15% {
+    -webkit-transform: translateX(33%);
+    -ms-transform: translateX(33%);
+    transform: translateX(33%);
+  }
+  //pause
+  25% {
+    -webkit-transform: translateX(33%);
+    -ms-transform: translateX(33%);
+    transform: translateX(33%);
+  }
+
+  40% {
+    -webkit-transform: translateX(66%);
+    -ms-transform: translateX(66%);
+    transform: translateX(66%);
+  }
+  //pause
+  50% {
+    -webkit-transform: translateX(66%);
+    -ms-transform: translateX(66%);
+    transform: translateX(66%);
+  }
+
+  70% {
+    -webkit-transform: translateX(170%);
+    -ms-transform: translateX(170%);
+    transform: translateX(170%);
+  }
+
+  100% {
+    -webkit-transform: translateX(170%);
+    -ms-transform: translateX(170%);
+    transform: translateX(170%);
+  }
+}
+
+.slideOutRight {
+  -webkit-animation-name: slideOutRight;
+  animation-name: slideOutRight;
+}

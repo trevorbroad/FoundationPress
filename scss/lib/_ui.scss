@@ -1,0 +1,412 @@
+/**
+ * Created with JetBrains RubyMine.
+ * User: trevor
+ * Date: 2013-08-28
+ * Time: 3:30 PM
+ *
+ * The following is the general ui library from the Mogo style guide. It consists oF elements such as the hr tag
+ * tooltips, etc.
+ *
+ */
+
+
+@media #{$screen} {
+
+  .black-highlight-square {
+    background: $black;
+    text-align:center;
+    display: inline-block;
+    padding: 5px 15px;
+    color: white;
+  }
+}
+
+@media #{$small} {
+
+  .black-highlight-square {
+    padding: 10px 20px;
+  }
+}
+
+/* hrs */
+
+@mixin hr($dist) {
+  border:1px solid $lightGray;
+  margin:$dist;
+}
+
+hr.section {
+  @include hr(20px 20px); //or 30px top
+}
+
+hr.full {
+  @include hr(50px auto); //or 70px top
+}
+
+/* arrows */
+
+@mixin arrow-base {
+  width: 0;
+  height: 0;
+}
+
+@mixin arrow-up($size, $colour) {
+  @include arrow-base;
+  border-left: $size solid transparent;
+  border-right: $size solid transparent;
+  border-bottom: $size solid $colour;
+}
+
+@mixin arrow-down($size, $colour) {
+  @include arrow-base;
+  border-left: $size solid transparent;
+  border-right: $size solid transparent;
+  border-top: $size solid $colour;
+}
+
+@mixin arrow-right($size, $colour) {
+  @include arrow-base;
+  border-top: $size solid transparent;
+  border-bottom: $size solid transparent;
+  border-left: $size solid $colour;
+}
+
+@mixin arrow-left($size, $colour) {
+  @include arrow-base;
+  border-top: $size solid transparent;
+  border-bottom: $size solid transparent;
+  border-right: $size solid $colour;
+}
+
+@mixin ribbon-arrow($color) {
+  content: ' ';
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  top:0;
+  right:-20px;
+  z-index:1;
+  border-top: 50px solid transparent;
+  border-left: 20px solid $color;
+  border-bottom: 50px solid transparent;
+}
+
+/* circles */
+
+@mixin circle($size, $colour, $bg) {
+  width: $size;
+  height:$size;
+  color:$colour;
+  background:$bg;
+  border-radius:50%;
+}
+
+.slash {
+  height:45px;
+  width:1px;
+  border-left:1px solid $mediumGray;
+  position:absolute;
+  top:0;
+  transform: rotate(20deg);
+  -ms-transform: rotate(20deg);
+  -webkit-transform: rotate(20deg);
+}
+
+.vertical-line {
+  height:55px;
+  width:1px;
+  border-left:1px solid $lightGray;
+  position:absolute;
+  top:0;
+  transform: rotate(00deg);
+  -ms-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+}
+
+
+/* Text Highlighting */
+
+@mixin base-highlight {
+  @include border-radius(3px);
+  @include base-headings;
+  padding:$button-small-padding;
+  display:inline-block;
+}
+
+.pink-highlight {
+  @include base-highlight;
+  background-color: $pink;
+  color:$button-text;
+}
+
+.green-highlight {
+  @include base-highlight;
+  background-color:$green;
+  color:$button-text;
+}
+
+.black-highlight {
+  @include base-highlight;
+  background-color:$black;
+  color:$button-text;
+}
+
+.orange-highlight {
+  @include base-highlight;
+  background-color:$orange;
+  color:$button-text;
+}
+
+p {
+  .pink-highlight,
+  .green-highlight,
+  .black-highlight,
+  .orange-highlight {
+    padding:2px 5px;
+    margin-right:5px;
+  }
+}
+
+
+
+/* Lists  */
+
+@mixin base-ul($dist) {
+  @include base-font;
+
+  > li {
+    font-family:$body_fonts;
+    margin-top:$dist;
+
+    ul li {
+      margin-left:$dist;
+    }
+  }
+}
+
+@mixin base-ol {
+  @include base-ul(15px);
+  margin-left:0;
+  list-style-type:none;
+
+  > li {
+    counter-increment: customlistcounter;
+
+    &:before {
+      font-family:$heading_fonts;
+      margin-right:5px;
+    }
+  }
+  :first-child {
+    counter-reset: customlistcounter;
+  }
+
+}
+
+ul {
+  @include base-ul(0);
+  margin:0;
+
+  li {
+    list-style-type:none;
+  }
+}
+
+ul.list {
+  @include base-ul(15px);
+
+  li {
+    margin-left:15px;
+    list-style-type:disc;
+  }
+}
+
+ul.green-checks {
+  @include base-ul(15px);
+
+  li:before {
+    @include circle(
+      $size:    15px,
+      $colour:   $white,
+      $bg:      $green
+    );
+    font-family:'MogoUI';
+    content: "\e00f";
+    margin-right:5px;
+    font-size:19px;
+  }
+}
+
+ul.checks {
+  @include base-ul(5px);
+
+  li {
+    margin-left: 20px;
+
+    &:before {
+      font-family:'MogoUI';
+      content: "\e00f";
+      color:$black;
+      font-size:28px;
+      position:absolute;
+      margin-left:-30px;
+    }
+  }
+}
+
+ul.cross {
+  @include base-ul(5px);
+
+  li {
+    margin-left: 20px;
+
+    &:before {
+      font-family:'MogoUI';
+      content: "\e018";
+      color:$black;
+      font-size:28px;
+      position:absolute;
+      margin-left:-30px;
+    }
+  }
+}
+
+ol.regularList {
+  @include base-ol();
+
+  > li:before {
+    content: counter(customlistcounter) " ";
+    float: left;
+    width: 18px;
+  }
+}
+
+ol.circleList {
+  @include base-ol();
+
+  > li:before {
+    @include circle(
+      $size:    22px,
+      $colour:  $white,
+      $bg:      $black
+    );
+    content: counter(customlistcounter) " ";
+    text-align:center;
+    font-size:16px;
+    line-height:1.4em;
+    display:inline-block;
+
+  }
+}
+
+/* timeline wheel */
+
+@mixin wedge_wheel($size, $bg, $color, $rotation1, $rotation2) {
+
+  position:relative;
+  width:$size * 2;
+  height:$size * 2;
+  display:block;
+
+  li:nth-child(1) {
+    width:$size * 2;
+    height:$size * 2;
+    border-radius:50%;
+    background-color:$color;
+    display:block;
+    position:absolute;
+    left:0;
+    top:0;
+  }
+
+  li:nth-child(2) {
+    width:0;
+    height:0;
+    z-index:1;
+    left:0;
+    top:0;
+    display:block;
+    position:absolute;
+    border-right:$size solid $bg;
+    border-top:$size solid transparent;
+    border-left:$size solid $bg;
+    border-bottom:$size solid $bg;
+    border-radius: $size;
+    -moz-border-radius: $size;
+    -webkit-border-radius: $size;
+    transform: rotate($rotation1);
+    -ms-transform: rotate($rotation1);
+    -webkit-transform: rotate($rotation1);
+  }
+
+  li:nth-child(3) {
+    width:0;
+    height:0;
+    z-index:1;
+    left:0;
+    top:0;
+    display:block;
+    position:absolute;
+    border-right:$size solid $bg;
+    border-top:$size solid transparent;
+    border-left:$size solid $bg;
+    border-bottom:$size solid $bg;
+    border-radius: $size;
+    -moz-border-radius: $size;
+    -webkit-border-radius: $size;
+    transform: rotate($rotation2);
+    -ms-transform: rotate($rotation2);
+    -webkit-transform: rotate($rotation2);
+  }
+
+  li:nth-child(4) {
+    width:$size * 2 - 10;
+    height:$size * 2 - 10;
+    border-radius:50%;
+    position:absolute;
+    z-index:2;
+    background:white;
+    margin:5px 0 0 5px;
+    display:block;
+  }
+
+}
+
+ul.hour_5 {
+  @include wedge_wheel(
+    $size:       17px,
+    $bg:         $heavyGray,
+    $color:      $green,
+    $rotation1:  -10deg,
+    $rotation2:  45deg
+  );
+}
+
+
+ul.hour_10 {
+  @include wedge_wheel(
+    $size:       17px,
+    $bg:         $heavyGray,
+    $color:      $green,
+    $rotation1:  15deg,
+    $rotation2:  45deg
+  );
+}
+
+/* Dropdowns as tooltips */
+.f-dropdown {
+  @include border-radius(3px);
+  font-size:$desktop_base_font;
+  line-height:$desktop_base_height;
+  color:$white;
+  width:450px;
+  padding:15px;
+
+  p {
+    margin-bottom:0;
+  }
+  .large-4.small-4.columns {
+    text-align:right;
+  }
+}
+

@@ -1,0 +1,462 @@
+/**
+ * Created with JetBrains RubyMine.
+ * User: trevor
+ * Date: 2013-08-28
+ * Time: 3:30 PM
+ * This is the scss for the default header navigation in layouts/shared
+ */
+
+
+//offset page margin for fixed header
+//and fix foundation tooltip positions
+$body_margin_fix_mobile:  70px;
+$body_margin_fix_desktop: 100px;
+
+
+@media #{$screen} { 
+
+  body.home {
+    padding-top:$body_margin_fix_mobile;
+
+    #marketing_nav {
+      background: $white;
+      margin-top:-18px;
+      height:74px;
+      width: 100%;
+      position: fixed;
+      top: 0px;
+      z-index: 50;
+      box-shadow: 0px -2px 6px $black;
+      //height: 60px;
+
+      .logo {
+        @include grid-column(
+          $columns: 7
+        );
+        height: 42px;
+        margin-top:10px;
+
+        img {
+          //@include img_fade(0.1s);
+          margin:15px;
+        }
+
+        a {
+          display:block;
+          height: inherit;
+          width:100%;
+        }
+      }
+
+      .mainNav {
+
+        #center_links {
+          margin-top:10px;
+
+          li {
+            &.mogo-card-wrapper,
+            &.mogo-money-wrapper {
+              font-size:$mobile_tiny_font;
+              line-height:$mobile_tiny_height;
+              @include grid-column(
+                $columns: 2
+              );
+
+              .link-title {
+                font-family:$heading_fonts;
+                line-height:1em;
+                padding-top:3px;
+              }
+              .link-description {
+                display:none;
+              }
+            }
+            &.mogo-card-wrapper {
+              .mogo-card{
+                background: image-url('ui_sprites/ui_icons-set1.png') 2px 5px no-repeat;
+                width: 31px;
+                height: 24px;
+              }
+            }
+
+            &.mogo-money-wrapper {
+              .mogo-money{
+                background: image-url('ui_sprites/ui_icons-set1.png') 7px -46px no-repeat;
+                width: 31px;
+                height: 24px;
+              }
+              a:hover div {
+                color:$green;
+              }
+            }
+
+            &.store-wrapper,
+            &.help-wrapper {
+              display:none;
+            }
+            a {
+              //@include fade(0.1s);
+              color: $black;
+              float: left;
+              padding:17px 15px;
+
+              &:hover span, &:hover div {
+                color:$pink;
+              }
+            }
+          }
+        }
+      }
+
+      .shortNav {
+
+        .view_menu, .action_buttons {
+          display:none;
+        }
+      }
+
+      #right_links {
+        display:none;
+      }
+    }
+    #sticky-bar.stuck {
+      background-color:$white;
+      width:100%;
+    }
+  }
+
+  #provinceSelect {
+
+    select {
+      position:absolute;
+    }
+    a {
+      text-align: left;
+    }
+  }
+}
+
+@media #{$medium-up} {
+
+  body.home {
+    padding-top:$body_margin_fix_desktop;
+
+    #marketing_nav {
+      margin-top:0px;
+      height: 74px;
+      white-space:nowrap;
+
+      .logo {
+        @include grid-column(
+          $columns: 3
+        );
+
+        margin-top:0px;
+
+        img {
+          margin:15px 30px;
+        }
+      }
+
+      .mainNav {
+        @include grid-column(
+          $columns: 6
+        );
+
+        #center_links {
+          margin:0 auto;
+          width:500px;
+          white-space:nowrap;
+
+          li {
+            &.mogo-card-wrapper,
+            &.mogo-money-wrapper {
+              @include base-font;
+              @include grid-column(
+                $collapse: true
+              );
+              font-size:$desktop_base_font;
+              line-height:$desktop_base_height;
+              width:170px;
+
+              .mogo-card, .mogo-money {
+                float:left;
+                display: inline-block;
+              }
+
+              .link-title {
+                font-family:$heading_fonts;
+                float:left;
+                padding-left:3px;
+              }
+
+              .link-description {
+                font-family:$body_fonts;
+                display:inherit;
+                clear:left;
+                font-size: 13px;
+                line-height:1.4;
+              }
+            }
+            &.mogo-card-wrapper {
+              .mogo-card{
+                background: image-url('ui_sprites/ui_icons-set1.png') 2px 5px no-repeat;
+              }
+            }
+
+            &.mogo-money-wrapper {
+              .mogo-money{
+                background: image-url('ui_sprites/ui_icons-set1.png') 2px -46px no-repeat;
+              }
+            }
+
+            &.store-wrapper,
+            &.help-wrapper {
+              font-family:$heading_fonts;
+              display:inline-block;
+              padding-top:10px;
+              height: 71px;
+            }
+          }
+        }
+      }
+
+      .asideNav {
+        @include grid-column(
+          $columns: 3
+        );
+
+        a.lender-licenses {
+          color: $black;
+          font-size: 13px;
+          position: absolute;
+          right: 25px;
+          top: 45px;
+        }
+
+        #right_links {
+          display:inherit;
+          float: right;
+          position:relative;
+          top:15px;
+          right:8px;
+
+          li {
+            display: inline-block;
+            margin: 0 0 0 5px;
+
+            a {
+              border: 0 none;;
+              cursor: pointer;
+              display: inline-block;
+              font-family:$heading_fonts;
+              font-size: 12px;
+              font-weight: normal;
+              line-height: 18px;
+              padding: 5px 12px;
+              text-transform: uppercase;
+              white-space: nowrap;
+              background-color: $black;
+              color: $white;
+            }
+
+            &.reloan {
+              margin-right: 5px;
+            }
+          }
+        }
+      }
+
+      .shortNav {
+        display:none;
+        position:relative;
+        top:20px;
+        right:15px;
+
+        .view_menu {
+          float:left;
+          display:inline;
+          margin-left: 80px;
+          margin-top: 12px;
+
+          a {
+            color:$black;
+
+            &:hover {
+              color:$pink;
+            }
+
+            .icon-menu {
+              position:relative;
+              left:30px;
+              font-size:15px;
+
+              &:before {
+                font-size:26px;
+                position:absolute;
+                left:-35px;
+                top:-4px;
+              }
+            }
+          }
+        }
+
+        .action_buttons {
+          display:inline;
+          float: right;
+          margin-top:5px;
+
+          .retro {
+            margin-right:10px;
+
+            .icon-card,
+            .icon-money {
+              font-size:24px;
+              position:relative;
+              top:4px;
+              line-height:0;
+            }
+          }
+        }
+      }
+
+      .navAnnouncement {
+        width: 100%;
+        background-color: rgba(25, 25, 25, 0.5);
+        margin-top: 10px;
+        transition: all 0.1s ease-in-out 0s;
+        opacity: 1;
+        display: block;
+
+        p{
+          margin: 10px;
+          color: $white;
+          font-size: 16px;
+        }
+
+        a {
+          border: 0 none;;
+          cursor: pointer;
+          display: inline-block;
+          font-family:$heading_fonts;
+          font-size: 12px;
+          font-weight: normal;
+          line-height: 18px;
+          padding: 5px 12px;
+          text-transform: uppercase;
+          white-space: nowrap;
+          background-color: $black;
+          color: $white !important;
+          margin-left: 15px;
+        }
+      }
+
+      &.simple {
+        background: rgba(255, 255, 255, 0.2);
+
+        .mainNav #center_links li a ,
+        .asideNav #center_links li a {
+          //@include fade(0.1s);
+          color: $white;
+          font-family:$heading_fonts;
+          font-size: 18px;
+          display:inline-block;
+          padding:6px 21px 0;
+          height: 38px;
+          margin-top: 14px;
+        }
+
+        .mainNav #center_links {
+          width:490px;
+
+          li {
+
+            &.mogo-card-wrapper {
+              width:auto;
+
+              .mogo-card {
+                display:none;
+              }
+            }
+
+            &.mogo-money-wrapper {
+
+              .mogo-money {
+                display:none;
+              }
+
+              a {
+                padding-right: 30px;
+                border-right: 1px solid $white;
+              }
+            }
+
+            &.store-wrapper,
+            &.help-wrapper {
+              padding-top:0;
+            }
+          }
+        }
+
+        .asideNav {
+
+          a.lender-licenses {
+            color: $white;
+          }
+        }
+
+        &.scrolled {
+          background: rgba(255, 255, 255, 1);
+
+          .mainNav #center_links li a,
+          .asideNav #center_links li a {
+            color: $black;
+            border-color: $black !important;
+          }
+          .navAnnouncement {
+            opacity: 0;
+            display: none;
+          }
+          .asideNav {
+
+            a.lender-licenses {
+              color: $black;
+            }
+          }
+        }
+      }
+
+      &.MainNavStatus {
+
+        .logo {
+          @include grid-column(
+            $columns: 1
+          );
+        }
+      }
+    }
+  }
+
+}
+
+html.ie8 {
+
+  #marketing_nav{
+    border-bottom:2px solid $faintGray;
+  }
+}
+
+/* responsive hacks */
+@media only screen and (max-width: 1140px) {
+  #center_links {
+    margin-left:-50px!important;
+  }
+}
+@media only screen and (max-width: 930px) {
+  #center_links {
+    margin-left:-20px;
+  }
+  .store-wrapper, .help-wrapper {
+    display:none!important;
+  }
+}

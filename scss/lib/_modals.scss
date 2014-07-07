@@ -1,0 +1,45 @@
+/**
+ * Created with JetBrains RubyMine.
+ * User: trevor
+ * Date: 2013-10-17
+ * Time: 2:32 PM
+ * To change this template use File | Settings | File Templates.
+ */
+
+
+@media #{$screen} {
+
+  .reveal-modal {
+    width:98%;
+    left:1%;
+    margin-left:0;
+    padding: 1.25em 0;
+  }
+
+  #licensed_lender {
+    box-shadow: none;
+    border-radius: 8px;
+    border: 0px;
+    padding: 16px 10px 8px 10px;
+    max-width: 856px;
+  }
+}
+
+@media #{$small} {
+
+  .reveal-modal {
+    width: 80%;
+    margin-left: -40%;
+    left:50%;
+    padding: 1.25em;
+  }
+}
+
+
+@media (min-width: 1220px) {
+
+  #licensed_lender {
+    margin-left: -428px;
+  }
+}
+

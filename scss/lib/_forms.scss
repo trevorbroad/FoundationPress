@@ -1,0 +1,457 @@
+/**
+ * Created with JetBrains RubyMine.
+ * User: trevor
+ * Date: 2013-08-28
+ * Time: 3:30 PM
+ *
+ * This is the form style-library from the Mogo style guide. These styles will be applied by default.
+ *
+ */
+
+@import "lib/datepicker";
+
+
+@media #{$screen} {
+
+  form.custom {
+
+    // default text fields
+    input:not([type=submit]):not([type=file]) {
+      -webkit-font-smoothing:antialiased;
+      border:1px solid $mediumGray;
+      background-color:$faintGray;
+      font-family:$body_fonts;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      font-size:17px;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus,
+    input[type="date"]:focus,
+    input[type="datetime"]:focus,
+    input[type="datetime-local"]:focus,
+    input[type="month"]:focus,
+    input[type="week"]:focus,
+    input[type="email"]:focus,
+    input[type="number"]:focus,
+    input[type="search"]:focus,
+    input[type="tel"]:focus,
+    input[type="time"]:focus,
+    input[type="url"]:focus,
+    textarea:focus,
+    .dropdown:focus,
+    .dropdown:focus ul,
+    .radio:focus {
+      @include fade(0.2s);
+      border-color:$darkGray;
+      outline: none;
+    }
+
+    button,
+    .button {
+      text-align:left;
+    }
+
+    button:hover,
+    button:focus,
+    .button:hover,
+    .button:focus {
+      background-color: $pink;
+    }
+
+    //labels
+    label {
+      color:$black;
+      margin-bottom:10px;
+    }
+
+    input.string {
+      appearance:none;
+      -moz-appearance:none;
+      -webkit-appearance:none;
+    }
+
+    .input {
+      position:relative;
+      margin-bottom: 20px;
+    }
+
+    //radio buttons
+    .input.radio {
+      margin-top:0.5em;
+      margin-bottom:1em;
+
+      label.collection_radio {
+        display:inline;
+        margin: auto 30px auto 10px;
+      }
+    }
+
+    //checkboxes
+    .input.boolean {
+      margin-bottom:1.25em;
+
+      .checkbox {
+        display:inline-block;
+        vertical-align:top;
+
+        &:before {
+          margin-left: -4px;
+        }
+      }
+
+      label.boolean {
+        @include base-font;
+        display:inline;
+      }
+    }
+
+    //flush left margin on radio/checkbox labels
+    .input.radio, .input.boolean {
+      margin-top:0.5em;
+      margin-bottom:1em;
+
+      span.custom.radio,
+      span.custom.checkbox {
+        top: 4px;
+        position: absolute;
+      }
+
+      > div > span {
+        position:relative;
+      }
+
+      label.collection_radio, label.boolean {
+        margin-left: 25px;
+        display: inline-block;
+      }
+    }
+
+    .hasDatepicker {
+       cursor:default;
+     }
+
+    //date fields
+    .datefield-icon {
+      position: absolute;
+      right: 10px;
+      bottom: 3px;
+      width:30px;
+      height:30px;
+
+      &:before {
+        font-family: 'MogoUI';
+        content:'\e00d';
+        color:$heavyGray;
+        font-size:38px;
+      }
+    }
+
+    // delete icon
+    span.deleteicon {
+      display:block;
+      position:relative;
+
+      .delete {
+        color:$darkGray;
+        position: absolute;
+        display: block;
+        top: 0px;
+        right: 0px;
+        padding: 9px 12px;
+        cursor: pointer;
+        display: none;
+      }
+    }
+
+    //hide inputs for toggle
+    .hidden-input {
+      display:none;
+    }
+
+    // Placeholders
+    $placeholder-color: $black;
+    $placeholder-focus: $mediumGray;
+
+    input::-webkit-input-placeholder {
+      color:$placeholder-color;
+    }
+
+    input.centered::-webkit-input-placeholder {
+      text-align:center;
+      color:$darkGray;
+    }
+
+    input:focus::-webkit-input-placeholder {
+      color:$placeholder-focus;
+    }
+    // FF < 19
+    input:-moz-placeholder {
+      color:$placeholder-color;
+    }
+
+    input.centered:-moz-placeholder {
+      text-align:center;
+      color:$darkGray;
+    }
+
+    input:focus:-moz-placeholder {
+      color:$placeholder-focus;
+    }
+    // FF > 19
+    input::-moz-placeholder {
+      color:$placeholder-color;
+    }
+
+    input.centered::-moz-placeholder {
+      text-align:center;
+      color:$darkGray;
+    }
+
+    input:focus::-moz-placeholder {
+      color:$placeholder-focus;
+    }
+    // IE10
+    input:-ms-input-placeholder {
+      color:$placeholder-color;
+    }
+
+    input.centered:-ms-input-placeholder {
+      text-align:center;
+      color:$darkGray;
+    }
+
+    input:focus:-ms-input-placeholder {
+      color:$placeholder-focus;
+    }
+
+    //dropdowns
+    .custom.dropdown {
+      background:$faintGray;
+      border:1px solid $mediumGray;
+      height:43px;
+
+      .current {
+        color:$black;
+      }
+
+      .selector:after,
+      &.open a.selector:after {
+        font-family: 'MogoUI';
+        content: "\e000";
+        color:$black;
+        font-size:16px;
+        margin-top:-25%;
+        border:0;
+      }
+
+      &:hover a.selector:after {
+        content: "\e000";
+        color:$mediumGray;
+        border:0;
+      }
+
+      &.open {
+        background:$white;
+        -webkit-border-bottom-right-radius: 0;
+        -webkit-border-bottom-left-radius: 0;
+        -moz-border-radius-bottomright: 0;
+        -moz-border-radius-bottomleft: 0;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+
+        a:first-child {
+          z-index: 100;
+          position: relative;
+        }
+
+        ul {
+          max-height:210px;
+          overflow-y:scroll;
+          left:-0.5px;
+          -webkit-box-shadow: none;
+          box-shadow: none;
+          -webkit-border-bottom-right-radius: 3px;
+          -webkit-border-bottom-left-radius: 3px;
+          -moz-border-radius-bottomright: 3px;
+          -moz-border-radius-bottomleft: 3px;
+          border-bottom-right-radius: 3px;
+          border-bottom-left-radius: 3px;
+          border-top:0px;
+
+          li {
+            color:$black;
+            font-size:16px;
+
+            &:first-child {
+              color:$mediumGray;
+            }
+          }
+        }
+      }
+    }
+
+    // custom phone-type and number inputs
+    .phone_wrap {
+      margin-bottom:30px;
+      clear:both;
+      display:inline-block;
+      width:100%;
+
+      div.tel {
+        display:none;
+        margin-bottom:0;
+        width: 85%;
+        float: left;
+
+        .error {
+          margin-bottom:0;
+        }
+      }
+
+      input.tel {
+        float:left;
+        border-left:0;
+        margin-bottom:0;
+        -webkit-border-top-left-radius: 0px;
+        -webkit-border-bottom-left-radius: 0px;
+        -moz-border-radius-topleft: 0px;
+        -moz-border-radius-bottomleft: 0px;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-left:0;
+      }
+
+      .define-tel {
+        margin-bottom:0;
+
+        .custom.dropdown {
+          margin-bottom:0;
+        }
+
+        &.defined {
+          float:left;
+          width:15%;
+          display:inline;
+
+          .custom.dropdown {
+            width:100%;
+            float:left;
+            background-color:$white;
+            -webkit-border-top-right-radius: 0px;
+            -webkit-border-bottom-right-radius: 0px;
+            -moz-border-radius-topright: 0px;
+            -moz-border-radius-bottomright: 0px;
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 0px;
+
+            .current,
+            &.open a:first-child {
+              width: 100%;
+              color:transparent;
+              margin-left:0;
+
+              &:before {
+                color:$black;
+                left:25%;
+                position: absolute;
+              }
+            }
+            .selector {
+              width:100%;
+
+              &:after {
+                left:inherit;
+                right:10px;
+                display:none!important;
+              }
+            }
+          }
+        }
+
+
+      }
+    }
+
+
+    //errors
+    .field_with_errors {
+
+      input, .dropdown, span.radio, span.checkbox {
+        border:1px solid $orange;
+      }
+      .dropdown {
+        margin-bottom:1.1em;
+      }
+
+      .error {
+        @include base-font;
+        font-size:$desktop_small_font;
+        line-height:$desktop_small_height;
+        background:$orange;
+      }
+    }
+
+    .field_with_errors {
+
+      &.radio, &.boolean {
+
+        .error {
+          margin-top:0;
+        }
+      }
+    }
+
+    .phone_wrap {
+
+      .field_with_errors {
+
+        &.tel, &.define-tel {
+
+          .error {
+            margin-top:0;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+@media #{$small} {
+
+  form.custom {
+
+    .input {
+      margin-bottom: 30px;
+    }
+
+    button, .button {
+      text-align:center;
+    }
+
+    .phone_wrap .define-tel.defined .custom.dropdown {
+
+      .selector:after {
+        display:block;
+      }
+
+      .current,
+      &.open a:first-child {
+
+        &:before {
+          left:35%;
+        }
+      }
+    }
+    .field_with_errors {
+
+      .error {
+        font-size:$mobile_small_font;
+        line-height:$mobile_small_height;
+      }
+    }
+
+  }
+}

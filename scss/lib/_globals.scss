@@ -1,0 +1,41 @@
+/**
+ * Created with JetBrains RubyMine.
+ * User: trevor
+ * Date: 2013-09-05
+ * Time: 12:27 PM
+ * To change this template use File | Settings | File Templates.
+ */
+
+
+/* border-radius */
+@mixin border-radius($dist) {
+  -webkit-border-radius: $dist;
+  -moz-border-radius: $dist;
+  border-radius: $dist;
+}
+
+@mixin border-radius-all($top-left, $bottom-left, $top-right, $bottom-right) {
+  -webkit-border-top-left-radius: $top-left;
+  -moz-border-radius-topleft: $top-left;
+  border-top-left-radius: $top-left;
+
+  -webkit-border-bottom-left-radius: $bottom-left;
+  -moz-border-radius-bottomleft: $bottom-left;
+  border-bottom-left-radius: $bottom-left;
+
+  -webkit-border-top-right-radius: $top-right;
+  -moz-border-radius-topright: $top-right;
+  border-top-right-radius: $top-right;
+
+  -webkit-border-bottom-right-radius: $bottom-right;
+  -moz-border-radius-bottomright: $bottom-right;
+  border-bottom-right-radius: $bottom-right;
+}
+
+@mixin opacity($fraction, $whole) {
+  opacity:$fraction;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=$whole)";
+  filter: alpha(opacity=$whole);
+  -moz-opacity: $fraction;
+  -khtml-opacity: $fraction;
+}

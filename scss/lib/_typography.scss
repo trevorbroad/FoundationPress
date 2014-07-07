@@ -1,0 +1,350 @@
+/**
+ * Created with JetBrains RubyMine.
+ * User: trevor
+ * Date: 2013-08-28
+ * Time: 3:30 PM
+ *
+ * The following is the typography library from the Mogo style guide. By default, text will appear dark on lighter
+ * backgrounds. If you need light text on a dark background, add the class '.light_type' to the wrapper element and
+ * all text inside will become light.
+ *
+ * These mixins are also useful for importing default font-style to custom elements. For example
+ *
+ * span.title {
+ *    @import base-headings;
+ *    color: $heavyGray;
+ *    text-decoration: underline;
+ * }
+ *
+ */
+
+$heading_fonts:      'ProximaNovaBold', Helvetica, Arial, sans-serif;
+$impact_fonts:       'BebasNeue', Impact, Arial, sans-serif;
+$body_fonts:         'ProximaNovaRegular', Helvetica, Arial, sans-serif;
+
+$mobile_base_font:    16px;
+$mobile_base_height:  22px;
+
+$mobile_small_font:   14px;
+$mobile_small_height: 18px;
+
+$mobile_tiny_font:    12px;
+$mobile_tiny_height:  16px;
+
+
+$desktop_base_font:    17px;
+$desktop_base_height:  24px;
+
+$desktop_small_font:   15px;
+$desktop_small_height: 20px;
+
+$desktop_tiny_font:    13px;
+$desktop_tiny_height:  18px;
+
+
+@mixin base-headings {
+  font-family:$heading_fonts;
+  -webkit-font-smoothing:antialiased;
+  font-weight:normal;
+}
+
+@mixin base-font {
+  font-family:$body_fonts;
+  -webkit-font-smoothing:antialiased;
+}
+
+@media #{$screen} {
+
+  body {
+    @include base-font;
+    font-size:$mobile_base_font;
+    line-height:$mobile_base_height;
+  }
+
+  h1 {
+    @include base-headings;
+    font-size:32px;
+    line-height:36px;
+
+    &.huge {
+      font-family:$impact_fonts;
+      font-size:60px;
+      line-height:50px;
+      letter-spacing:12px;
+    }
+    &.upcase {
+      letter-spacing:11px;
+    }
+  }
+
+  h2 {
+    @include base-headings;
+    font-size:26px;
+    line-height:32px;
+
+    &.huge {
+      font-family:$impact_fonts;
+      font-size:50px;
+      line-height:45px;
+    }
+    &.upcase {
+      letter-spacing:8px;
+    }
+  }
+
+  h3 {
+    @include base-headings;
+    font-size:22px;
+    line-height:28px;
+
+    &.upcase {
+      letter-spacing:6px;
+    }
+  }
+
+  h4 {
+    @include base-headings;
+    font-size:20px;
+    line-height:26px;
+
+    &.upcase {
+      letter-spacing:5px;
+    }
+  }
+
+  h5 {
+    @include base-headings;
+    font-size:18px;
+    line-height:22px;
+
+    &.upcase {
+      letter-spacing:3px;
+    }
+  }
+
+  h6 {
+    @include base-headings;
+    font-size:$mobile_base_font;
+    line-height:$mobile_base_height;
+
+    &.upcase {
+      letter-spacing:2px;
+    }
+  }
+
+  p, li, label {
+    @include base-font;
+    font-size:$mobile_base_font;
+    line-height:$mobile_base_height;
+  }
+
+  .small {
+    @include base-font;
+    font-size:$mobile_small_font;
+    line-height:$mobile_small_height;
+  }
+
+  .tiny {
+    @include base-font;
+    font-size:$mobile_tiny_font;
+    line-height:$mobile_tiny_height;
+  }
+
+  b {
+    @include base-headings;
+    font-size:$mobile_base_font;
+    line-height:$mobile_base_height;
+  }
+  .upcase {
+    text-transform:uppercase;
+  }
+}
+
+
+
+/* Desktop fonts */
+
+@media #{$small} {
+
+  body {
+    @include base-font;
+    font-size:$desktop_base_font;
+    line-height:$desktop_base_height;
+  }
+
+  h1 {
+    @include base-headings;
+    font-size:48px;
+    line-height:52px;
+  }
+
+  h1.huge {
+    font-family:$impact_fonts;
+    font-size:85px;
+    line-height:80px;
+  }
+
+  h2 {
+    @include base-headings;
+    font-size:36px;
+    line-height:42px;
+  }
+
+  h2.huge {
+    font-family:$impact_fonts;
+    font-size:60px;
+    line-height:50px;
+  }
+
+  h3 {
+    @include base-headings;
+    font-size:28px;
+    line-height:32px;
+  }
+
+  h4 {
+    @include base-headings;
+    font-size:22px;
+    line-height:28px;
+  }
+
+  h5 {
+    @include base-headings;
+    font-size:20px;
+    line-height:24px;
+  }
+
+  h6 {
+    @include base-headings;
+    font-size:$desktop_base_font;
+    line-height:$desktop_base_height;
+  }
+
+  p, li, label {
+    @include base-font;
+    font-size:$desktop_base_font;
+    line-height:$desktop_base_height;
+  }
+
+  .small {
+   @include base-font;
+    font-size:$desktop_small_font;
+    line-height:$desktop_small_height;
+  }
+
+  .tiny {
+    @include base-font;
+    font-size:$desktop_tiny_font;
+    line-height:$desktop_tiny_height;
+  }
+
+  b {
+    @include base-headings;
+    font-size:$desktop_base_font;
+    line-height:$desktop_base_height;
+  }
+}
+
+/* links */
+
+a {
+  color:$blue;
+  text-decoration: none;
+
+  &:hover {
+    color:$pink;
+  }
+
+  &:active {
+    color:$darkRed;
+  }
+
+  &:visited{
+    color:$darkGreen;
+  }
+}
+
+
+/* Light font class when on dark backgrounds */
+
+.light_type {
+
+  $light_type_headings: $white;
+  $light_type_text: $faintGray;
+  $light_type_links: $mediumGray;
+
+  h1 {
+    color:$light_type_headings;
+  }
+  h1.huge {
+    color:$light_type_headings;
+  }
+
+  h2 {
+    color:$light_type_headings;
+  }
+
+  h2.huge {
+    color:$light_type_headings;
+  }
+
+  h3 {
+    color:$light_type_headings;
+  }
+
+  h4 {
+    color:$light_type_headings;
+  }
+
+  h5 {
+    color:$light_type_headings;
+  }
+
+  h6 {
+    color:$light_type_headings;
+  }
+
+  p {
+    color:$light_type_text;
+  }
+
+  li {
+    color:$light_type_text;
+  }
+
+  span {
+    color:$light_type_text;
+  }
+
+  .small {
+    color:$light_type_text;
+  }
+
+  .tiny {
+    color:$light_type_text;
+  }
+
+  b {
+    color:$light_type_text;
+  }
+
+  i {
+    color:$light_type_text;
+  }
+
+  a {
+    color:$light_type_links;
+
+    &:hover {
+      color:$pink;
+    }
+
+    &:active {
+      color:$light_type_links;
+    }
+  }
+}
+
+
+
+

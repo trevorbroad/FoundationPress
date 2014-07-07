@@ -1,0 +1,58 @@
+/**
+ * Created with JetBrains RubyMine.
+ * User: trevor
+ * Date: 2013-08-28
+ * Time: 3:30 PM
+ *
+ * This is the library of all colors from the Mogo style guide. Only use the variables defined here when
+ * adding a colour to an element, so if we decide to change a colour, we only need to change it here and
+ * it will be applied everywhere
+ *
+ * example:
+ * h1 {
+ *  color: $heavyGray;
+ * }
+ */
+
+
+$white:       #FFFFFF;
+$black:       #191919;
+$pink:        #FF005A;
+$lightPink:   #FE8899;
+$blue:        #02a0b6;
+$green:       #3CCF63;
+$orange:      #FF7500;
+$yellow:      #FFFF00;
+$faintGray:   #EEEEEE;
+$lightGray:   #CCCCCC;
+$mediumGray:  #BBBBBB;
+$darkGray:    #666666;
+$heavyGray:   #333333;
+$zipRed:      #EC2127;
+$miniOrange:  #F68A21;
+$flexPurple:  #6957a2;
+$liquidBlue:  #0E98D7;
+$neonGreen:   #00FF00;
+$darkRed:     #D1004A; //active link state
+$darkGreen:   #037F89; //visited link state
+
+@mixin color($color, $color2) {
+  color: $color;
+
+  &:before {
+    color: $color2;
+  }
+}
+
+@mixin gradient($fallback, $color1, $color2, $color2-pos, $color3, $color3-pos, $color4) {
+  background: $fallback; /* Old browsers */
+  /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmJjYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjE4JSIgc3RvcC1jb2xvcj0iI2ZmZmJjYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjgyJSIgc3RvcC1jb2xvcj0iI2NiZmZjYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNjYmZmY2EiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+  background: -moz-linear-gradient(left,  $color1 0%, $color2 $color2-pos, $color3 $color3-pos, $color4 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,$color1), color-stop($color2-pos,$color2), color-stop($color3-pos,$color3), color-stop(100%,$color4)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left,  $color1 0%,$color2 $color2-pos,$color3 $color3-pos,$color4 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left,  $color1 0%,$color2 $color2-pos,$color3 $color3-pos,$color4 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left,  $color1 0%,$color2 $color2-pos,$color3 $color3-pos,$color4 100%); /* IE10+ */
+  background: linear-gradient(to right,  $color1 0%,$color2 $color2-pos,$color3 $color3-pos,$color4 100%); /* W3C */
+  /* filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fffbca', endColorstr='#cbffca',GradientType=1 ); /* IE6-8 */
+}

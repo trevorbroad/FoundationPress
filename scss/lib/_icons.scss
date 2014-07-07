@@ -1,0 +1,1022 @@
+/**
+ * Created with JetBrains RubyMine.
+ * User: trevor
+ * Date: 2013-09-10
+ * Time: 5:29 PM
+ * To change this template use File | Settings | File Templates.
+ */
+
+@mixin loan-logo($circleSize, $fontColour, $circleBg, $logo) {
+  @include circle(
+    $size:    $circleSize,
+    $colour:  $fontColour,
+    $bg:      $circleBg
+  );
+  display:inline-block;
+
+  &:before {
+    font-family: 'MogoUI';
+    content: $logo;
+    font-size:$circleSize;
+    line-height:$circleSize;
+    position:relative;
+  }
+}
+
+@mixin loan-font($height, $content, $size, $indent) {
+  height:$height;
+
+  &:before{
+    font-family:'MogoUI';
+    content: $content;
+    font-size:$size;
+    text-indent:$indent;
+    position: absolute;
+    display: block;
+  }
+}
+
+@mixin sprite-image($height, $width, $x, $y) {
+  width:$width;
+  height:$height;
+  display:inline-block;
+  background:image-url('ui_sprites/ui_icons-set1.png') no-repeat $x $y;
+}
+
+
+@media #{$screen} {
+
+  .mini-logo-huge {
+    @include loan-logo(
+      $circleSize:    80px,
+      $fontColour:    $white,
+      $circleBg:      $miniOrange,
+      $logo:          "\e005"
+    );
+  }
+
+  .mini-logo-large {
+    @include loan-logo(
+      $circleSize:    60px,
+      $fontColour:    $white,
+      $circleBg:      $miniOrange,
+      $logo:          "\e005"
+    );
+  }
+
+  .mini-logo-medium,
+  .mini-logo {
+    @include loan-logo(
+      $circleSize:    40px,
+      $fontColour:    $white,
+      $circleBg:      $miniOrange,
+      $logo:          "\e005"
+    );
+  }
+
+  .mini-logo-small {
+    @include loan-logo(
+      $circleSize:    30px,
+      $fontColour:    $white,
+      $circleBg:      $miniOrange,
+      $logo:          "\e005"
+    );
+  }
+
+  .mini-logo-tiny {
+    @include loan-logo(
+      $circleSize:    20px,
+      $fontColour:    $white,
+      $circleBg:      $miniOrange,
+      $logo:          "\e005"
+    );
+  }
+
+  .zip-logo-huge {
+    @include loan-logo(
+      $circleSize:    80px,
+      $fontColour:    $white,
+      $circleBg:      $zipRed,
+      $logo:          "\e004"
+    );
+  }
+
+  .zip-logo-large {
+    @include loan-logo(
+      $circleSize:    60px,
+      $fontColour:    $white,
+      $circleBg:      $zipRed,
+      $logo:          "\e004"
+    );
+  }
+
+  .zip-logo-medium,
+  .zip-logo {
+    @include loan-logo(
+      $circleSize:    40px,
+      $fontColour:    $white,
+      $circleBg:      $zipRed,
+      $logo:          "\e004"
+    );
+  }
+
+  .zip-logo-small {
+    @include loan-logo(
+      $circleSize:    30px,
+      $fontColour:    $white,
+      $circleBg:      $zipRed,
+      $logo:          "\e004"
+    );
+  }
+
+  .zip-logo-tiny {
+    @include loan-logo(
+      $circleSize:    20px,
+      $fontColour:    $white,
+      $circleBg:      $zipRed,
+      $logo:          "\e004"
+    );
+  }
+
+  .flex-logo-huge {
+    @include loan-logo(
+      $circleSize:    80px,
+      $fontColour:    $white,
+      $circleBg:      $flexPurple,
+      $logo:          "\e604"
+    );
+  }
+
+  .flex-logo-large {
+    @include loan-logo(
+      $circleSize:    60px,
+      $fontColour:    $white,
+      $circleBg:      $flexPurple,
+      $logo:          "\e604"
+    );
+  }
+
+  .flex-logo-medium {
+    @include loan-logo(
+      $circleSize:    40px,
+      $fontColour:    $white,
+      $circleBg:      $flexPurple,
+      $logo:          "\e604"
+    );
+  }
+
+  .flex-logo-small {
+    @include loan-logo(
+      $circleSize:    30px,
+      $fontColour:    $white,
+      $circleBg:      $flexPurple,
+      $logo:          "\e604"
+    );
+  }
+
+  .flex-logo-tiny {
+    @include loan-logo(
+      $circleSize:    20px,
+      $fontColour:    $white,
+      $circleBg:      $flexPurple,
+      $logo:          "\e604"
+    );
+  }
+
+  .liquid-logo-huge {
+    @include loan-logo(
+      $circleSize:    80px,
+      $fontColour:    $white,
+      $circleBg:      $liquidBlue,
+      $logo:          "\e605"
+    );
+    &:before {
+      font-size:70px;
+      left:5px;
+    }
+  }
+
+  .liquid-logo-large {
+    @include loan-logo(
+      $circleSize:    60px,
+      $fontColour:    $white,
+      $circleBg:      $liquidBlue,
+      $logo:          "\e605"
+    );
+    &:before {
+      font-size:50px;
+      left:5px;
+    }
+  }
+
+  .liquid-logo-medium {
+    @include loan-logo(
+      $circleSize:    40px,
+      $fontColour:    $white,
+      $circleBg:      $liquidBlue,
+      $logo:          "\e605"
+    );
+    &:before {
+      font-size:45px;
+      left:5px;
+    }
+  }
+
+  .liquid-logo-small {
+    @include loan-logo(
+      $circleSize:    30px,
+      $fontColour:    $white,
+      $circleBg:      $liquidBlue,
+      $logo:          "\e605"
+    );
+    position:relative;
+    top:1px;
+
+    &:before {
+      position:absolute;
+      font-size:24px;
+      left: 3px;
+    }
+  }
+
+  .liquid-logo-tiny {
+    @include loan-logo(
+      $circleSize:    20px,
+      $fontColour:    $white,
+      $circleBg:      $liquidBlue,
+      $logo:          "\e605"
+    );
+    position:relative;
+    top:1px;
+
+    &:before {
+      position:absolute;
+      font-size:16px;
+      left: 2px;
+    }
+  }
+
+  .mini-font {
+    @include loan-font(
+      $height:  27px,
+      $content: "\e007",
+      $size:    250px,
+      $indent:  -40px
+    );
+
+    &.small {
+      @include loan-font(
+        $height:  30px,
+        $content: "\e007",
+        $size:    180px,
+        $indent:  -23px
+      );
+    }
+  }
+
+  .zip-font {
+    @include loan-font(
+      $height:  27px,
+      $content: "\e008",
+      $size:    250px,
+      $indent:  -40px
+    );
+
+    &.small {
+      @include loan-font(
+        $height:  30px,
+        $content: "\e008",
+        $size:    180px,
+        $indent:  -23px
+      );
+    }
+  }
+
+  .expand {
+    @include base-headings;
+    @include rotate(45deg);
+    cursor:pointer;
+    font-size:20px;
+    display:inline-block;
+    margin:auto 5px;
+    line-height:1.1em;
+
+    &:before {
+      font-family:'MogoUI';
+      content: "\e017";
+      color:$black;
+    }
+
+    &.expanded {
+      @include rotate(0deg);
+      @include fade(0.25s);
+    }
+
+    &.reset {
+      @include rotate(45deg);
+      @include fade(0.25s);
+    }
+  }
+  .hidden_content {
+    display:none;
+  }
+  .expand.show-for-small {
+    display: inline-block !important;
+  }
+}
+
+@media #{$small} {
+
+  .flex-logo-medium {
+    @include loan-logo(
+      $circleSize:    50px,
+      $fontColour:    $white,
+      $circleBg:      $flexPurple,
+      $logo:          "\e604"
+    );
+  }
+
+  .mini-logo,
+  .mini-logo-medium {
+    @include loan-logo(
+      $circleSize:    50px,
+      $fontColour:    $white,
+      $circleBg:      $miniOrange,
+      $logo:          "\e005"
+    );
+  }
+
+  .zip-logo, .zip-logo-medium {
+    @include loan-logo(
+      $circleSize:    50px,
+      $fontColour:    $white,
+      $circleBg:      $zipRed,
+      $logo:          "\e004"
+    );
+  }
+
+  .mini-font {
+    &.small {
+      @include loan-font(
+        $height:  27px,
+        $content: "\e007",
+        $size:    250px,
+        $indent:  -40px
+      );
+    }
+  }
+
+  .zip-font {
+    &.small {
+      @include loan-font(
+        $height:  27px,
+        $content: "\e008",
+        $size:    250px,
+        $indent:  -40px
+      );
+    }
+  }
+
+  .expand {
+    font-size:16px;
+
+    &.show-for-small {
+      display: none !important;
+    }
+  }
+}
+
+// sprite icons
+.money-back {
+  @include sprite-image(
+    $width:   33px,
+    $height:  33px,
+    $x:       0,
+    $y:       -165px
+  );
+}
+
+.fast-fund {
+  @include sprite-image(
+    $width:   33px,
+    $height:  33px,
+    $x:       0,
+    $y:       -202px
+  );
+}
+
+
+// Mogo-UI-font icons
+.info {
+  &.has-tip {
+    border-bottom:0;
+    font-weight:normal;
+    position:relative;
+  }
+  &:before {
+    font-family:'MogoUI';
+    content: "\e019";
+    margin:auto 5px;
+  }
+}
+
+.close {
+  color:$blue;
+  cursor:pointer;
+
+  &:before {
+    font-family:'MogoUI';
+    content: "\e017";
+    color:$black;
+  }
+}
+
+.close-after {
+  color:$blue;
+  cursor:pointer;
+
+  &:after {
+    font-family:'MogoUI';
+    content: "\e017";
+    color:$black;
+    margin-left:5px;
+
+  }
+}
+
+.smiley-face {
+  display:inline-block;
+  width:22px;
+  height:22px;
+
+  &:after {
+    font-family:'MogoUI';
+    color:$darkGray;
+    line-height:1em;
+  }
+  &.happy:after {
+    content: "\e601";
+  }
+  &.sad:after {
+    content: "\e602";
+  }
+}
+
+@mixin control-icon($ctl-size, $ctl-colour, $ctl-bg, $ctl-icon, $ctl-font, $ctl-x) {
+  @include circle(
+    $size:    $ctl-size,
+    $colour:  $ctl-colour,
+    $bg:      $ctl-bg
+  );
+
+  &:before {
+    font-family: 'MogoUI';
+    content:$ctl-icon;
+    color:$ctl-colour;
+    font-size:$ctl-font;
+    padding-left:$ctl-x;
+  }
+}
+
+.play {
+  @include control-icon(
+    $ctl-size:    24px,
+    $ctl-colour:  $white,
+    $ctl-bg:      $green,
+    $ctl-icon:    "\e80f",
+    $ctl-font:    20px,
+    $ctl-x:       9px
+  );
+
+  &:hover {
+    @include control-icon(
+      $ctl-size:    24px,
+      $ctl-colour:  $white,
+      $ctl-bg:      $zipRed,
+      $ctl-icon:    "\e605",
+      $ctl-font:    18px,
+      $ctl-x:       3px
+    );
+  }
+}
+
+.pause {
+  @include control-icon(
+    $ctl-size:    24px,
+    $ctl-colour:  $white,
+    $ctl-bg:      $zipRed,
+    $ctl-icon:    "\e605",
+    $ctl-font:    18px,
+    $ctl-x:       3px
+  );
+
+  &:hover {
+    @include control-icon(
+      $ctl-size:    24px,
+      $ctl-colour:  $white,
+      $ctl-bg:      $green,
+      $ctl-icon:    "\e80f",
+      $ctl-font:    20px,
+      $ctl-x:       9px
+    );
+  }
+}
+
+.green-check {
+  @include control-icon(
+    $ctl-size:    35px,
+    $ctl-colour:  $white,
+    $ctl-bg:      $green,
+    $ctl-icon:    "\e00f",
+    $ctl-font:    40px,
+    $ctl-x:       0
+  );
+  display:inline-block;
+  position:relative;
+
+  &:before {
+    position:absolute;
+    top:5px;
+    left:-3px;
+  }
+}
+
+.small-check {
+  @include control-icon(
+    $ctl-size:    19px,
+    $ctl-colour:  $white,
+    $ctl-bg:      $green,
+    $ctl-icon:    "\e00f",
+    $ctl-font:    20px,
+    $ctl-x:       0
+  );
+  position:relative;
+  display:inline-block;
+
+  &:before {
+    position:absolute;
+    top:-3px;
+    left:-1px;
+  }
+}
+
+.dollar-sign {
+  position:relative;
+  padding-left:25px;
+
+  &:before {
+    color:$green;
+    font-family: 'MogoUI';
+    content:'\e010';
+    font-size:24px;
+    position:absolute;
+    left:0;
+  }
+}
+
+h1.dollar-sign {
+  padding-left:65px;
+
+  &:before {
+    font-size:60px;
+  }
+}
+
+
+.exclaim {
+  @include circle(
+    $size:    25px,
+    $colour:  $green,
+    $bg:      $white
+  );
+  @include base-headings;
+  border:3px solid $green;
+  text-align:center;
+  line-height:1em;
+  font-size: 21px;
+  font-weight: bold;
+  text-align: center;
+  padding-left: 2px;
+}
+
+.arrow-right {
+  display:inline-block;
+  @include rotate(45deg);
+
+  &:before {
+    font-family: 'MogoUI';
+    content: "\e01c";
+    font-size:16px;
+    margin-left:5px;
+  }
+}
+
+.arrow-hollow-left {
+
+  &:before {
+    font-family: 'MogoUI';
+    content: "\e003";
+    font-size:13px;
+    margin-right:5px;
+  }
+}
+.arrow-hollow-right {
+
+  &:after {
+    font-family: 'MogoUI';
+    content: "\e002";
+    font-size:13px;
+    margin-left:5px;
+  }
+}
+
+.bold-arrow {
+  display:inline-block;
+
+  &:before {
+    font-family: 'MogoUI';
+    content: "\e606";
+    font-size:35px;
+  }
+}
+
+.edit {
+  display:inline-block;
+
+  &:before {
+    font-family: 'MogoUI';
+    content: "\e801";
+    font-size:13px;
+    margin-right:3px;
+  }
+}
+
+.Home{
+  &:before {
+    font-family: 'MogoUI';
+    content: "\e81e";
+    padding:0 5px;
+  }
+}
+
+.Mobile{
+  &:before {
+    font-family: 'MogoUI';
+    content: "\e020";
+    padding:0 5px;
+  }
+}
+
+.Other{
+  &:before {
+    font-family: 'MogoUI';
+    content: "\e01f";
+    padding:0 5px;
+  }
+}
+
+.delete {
+  &:before {
+    font-family: 'MogoUI';
+    content: "\e017";
+  }
+}
+
+.wrench {
+  &:before {
+    font-family: 'MogoUI';
+    content: "\e823";
+    margin-right:5px;
+  }
+}
+
+.export {
+  &:before {
+    font-family: 'MogoUI';
+    content: "\e800";
+    margin-right:5px;
+  }
+}
+
+.error_notification {
+  padding-left: 30px;
+
+  &:before {
+    font-family: 'MogoUI';
+    content: "\e01b";
+    color: $orange;
+    font-size: 20px;
+    margin: 0;
+    left: 18px;
+    position: absolute;
+  }
+}
+
+.free-cred {
+  @include color($black, $black);
+
+  width:100%!important;
+  overflow:visible!important;
+
+  &:before {
+    font-family: 'MogoUI';
+    content: "\e607";
+    font-size: 150px;
+    line-height: 1em;
+    width:200px%!important;
+    overflow:visible!important;
+  }
+}
+
+.hundred-day {
+  @include color($black, $black);
+
+  &:before {
+    font-family: 'MogoUI';
+    content: "\e608";
+    font-size:150px;
+    line-height:1em;
+  }
+}
+
+#money-back-icon {
+  background: image-url('ui_sprites/ui_icons-set1.png') no-repeat -64px 0px;
+  width:80px;
+  height:80px;
+  display:inline-block;
+  margin: 10px 0;
+}
+
+#happiness-icon {
+  background: image-url('ui_sprites/ui_icons-set1.png') no-repeat -62px -166px;
+  width:83px;
+  height:83px;
+  display:inline-block;
+  margin: 10px 0;
+}
+#happiness-icon-large {
+  background: image-url('ui_sprites/ui_icons-set1.png') no-repeat -50px -254px;
+  width:107px;
+  height:107px;
+  display:inline-block;
+  margin: 10px 0;
+}
+
+#hundred-icon {
+  background: url(/assets/ui_sprites/ui_icons-set1.png) no-repeat -56px -368px;
+  width: 103px;
+  height: 85px;
+  display: inline-block;
+  margin: 10px 0;
+}
+
+#responsible-borrowing-icon {
+  background: image-url('ui_sprites/ui_icons-set1.png') no-repeat -64px -82px;
+  width:80px;
+  height:80px;
+  display:inline-block;
+  margin: 10px 0;
+}
+
+
+/* Icomoon code */
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'MogoUI', "ProximaNovaBold",Helvetica,Arial,sans-serif;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-edit:before {
+  content: "\e60d";
+}
+.icon-employinfo:before {
+  content: "\e60e";
+}
+.icon-bankinfo:before {
+  content: "\e60f";
+}
+.icon-calendar:before {
+  content: "\e610";
+}
+.icon-personalinfo:before {
+  content: "\e611";
+}
+.icon-cross:before {
+  content: "\e018";
+}
+.icon-help:before {
+  content: "\e019";
+}
+.icon-alert:before {
+  content: "\e01a";
+}
+.icon-caution:before {
+  content: "\e01b";
+}
+.icon-arrowupright:before {
+  content: "\e01c";
+}
+.icon-menu:before {
+  content: "\e01d";
+}
+.icon-submenu:before {
+  content: "\e01e";
+}
+.icon-phone:before {
+  content: "\e01f";
+}
+.icon-mobile:before {
+  content: "\e020";
+}
+.icon-wifi:before {
+  content: "\e021";
+}
+.icon-gplus:before {
+  content: "\e600";
+}
+.icon-happy:before {
+  content: "\e601";
+}
+.icon-sad:before {
+  content: "\e602";
+}
+.icon-flex:before {
+  content: "\e604";
+}
+.icon-return:before {
+  content: "\e800";
+}
+.icon-bubble:before {
+  content: "\e802";
+}
+.icon-search:before {
+  content: "\e803";
+}
+.icon-tridown:before {
+  content: "\e80c";
+}
+.icon-triup:before {
+  content: "\e80d";
+}
+.icon-trileft:before {
+  content: "\e80e";
+}
+.icon-triright:before {
+  content: "\e80f";
+}
+.icon-email:before {
+  content: "\e810";
+}
+.icon-lock:before {
+  content: "\e811";
+}
+.icon-unlock:before {
+  content: "\e812";
+}
+.icon-star:before {
+  content: "\e813";
+}
+.icon-unstar:before {
+  content: "\e814";
+}
+.icon-person:before {
+  content: "\e815";
+}
+.icon-menu2:before {
+  content: "\e816";
+}
+.icon-bars:before {
+  content: "\e817";
+}
+.icon-fb:before {
+  content: "\e818";
+}
+.icon-twitter:before {
+  content: "\e819";
+}
+.icon-pinterest:before {
+  content: "\e81a";
+}
+.icon-ig:before {
+  content: "\e81b";
+}
+.icon-heart:before {
+  content: "\e81c";
+}
+.icon-unheart:before {
+  content: "\e81d";
+}
+.icon-home:before {
+  content: "\e81e";
+}
+.icon-return2:before {
+  content: "\e81f";
+}
+.icon-lightning:before {
+  content: "\e820";
+}
+.icon-key:before {
+  content: "\e821";
+}
+.icon-gear:before {
+  content: "\e822";
+}
+.icon-wrench:before {
+  content: "\e823";
+}
+.icon-loop:before {
+  content: "\e824";
+}
+.icon-righttri:before {
+  content: "\f000";
+}
+.icon-crosscir:before {
+  content: "\e017";
+}
+.icon-pluscir:before {
+  content: "\e016";
+}
+.icon-plus:before {
+  content: "\e015";
+}
+.icon-checkcir:before {
+  content: "\e014";
+}
+.icon-mogo:before {
+  content: "\e013";
+}
+.icon-zerodollar:before {
+  content: "\e012";
+}
+.icon-card:before {
+  content: "\e011";
+}
+.icon-money:before {
+  content: "\e010";
+}
+.icon-check:before {
+  content: "\e00f";
+}
+.icon-aftershock:before {
+  content: "\e00e";
+}
+.icon-calendar2:before {
+  content: "\e00d";
+}
+.icon-debit:before {
+  content: "\e00c";
+}
+.icon-emt:before {
+  content: "\e00b";
+}
+.icon-paypal:before {
+  content: "\e00a";
+}
+.icon-pocket:before {
+  content: "\e009";
+}
+.icon-zip:before {
+  content: "\e008";
+}
+.icon-mini:before {
+  content: "\e007";
+}
+.icon-pocketico:before {
+  content: "\e006";
+}
+.icon-miniico:before {
+  content: "\e005";
+}
+.icon-zipico:before {
+  content: "\e004";
+}
+.icon-arrowleft:before {
+  content: "\e003";
+}
+.icon-arrowright:before {
+  content: "\e002";
+}
+.icon-arrowtop:before {
+  content: "\e001";
+}
+.icon-arrowdown:before {
+  content: "\e000";
+}
+.icon-floppy:before {
+  content: "\e60c";
+}
+.icon-drawer:before {
+  content: "\e609";
+}
+.icon-thumbs-up:before {
+  content: "\e60a";
+}
+.icon-blocked:before {
+  content: "\e60b";
+}

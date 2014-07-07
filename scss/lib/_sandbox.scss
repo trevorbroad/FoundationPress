@@ -1,0 +1,69 @@
+/**
+ * Created with JetBrains RubyMine.
+ * User: trevor
+ * Date: 2013-08-28
+ * Time: 3:30 PM
+ *
+ * The following is a sandbox file and will be removed before rollout
+ *
+ */
+
+
+// Disable foundation custom form dropdowns for mobile
+/*
+.touch {
+  select {
+    visibility: visible !important;
+    margin-left: 0 !important;
+    position: static !important;
+
+    -webkit-appearance: menulist-button;
+    height: 30px;
+    padding: 4px 6px;
+    line-height: 30px;
+    display: inline-block;
+  }
+  form.custom div.custom.dropdown {
+    display: none;
+  }
+}
+*/
+
+#lpButDivID-1379445062 p {
+  display:inline;
+}
+
+.black_module {
+
+  // liveperson link styling
+  .lpChatTextLinkText span {
+    font-family:$body-fonts!important;
+    color:$blue;
+    font-size:$desktop_base_font!important;
+  }
+}
+
+iframe[name=google_conversion_frame] {
+  display:none;
+}
+
+.center {
+  text-align:center;
+}
+
+@media #{$screen} {
+
+  .tooltip {
+    @include base-font;
+    font-weight:normal;
+  }
+
+}
+
+@media #{$small} {
+
+  .tooltip {
+    max-width:400px;
+  }
+
+}

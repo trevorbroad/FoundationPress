@@ -1,0 +1,19 @@
+/**
+ * Created with JetBrains RubyMine.
+ * User: trevor
+ * Date: 12/20/2013
+ * Time: 4:33 PM
+ * To change this template use File | Settings | File Templates.
+ */
+
+table {
+  thead tr th {
+    @include base-headings;
+  }
+}
+
+
+table tr th, table tr td {
+  text-align: left;
+}
+

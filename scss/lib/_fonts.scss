@@ -1,0 +1,67 @@
+/**
+ * Created with JetBrains RubyMine.
+ * User: trevor
+ * Date: 2013-08-28
+ * Time: 3:30 PM
+ *
+ * The following is the font library from the Mogo style guide
+ *
+ */
+
+
+@font-face {
+  font-family: 'ProximaNovaBold';
+  src: asset-url('ProximaNovaSoft-Bold-webfont.eot');
+  src: asset-url('ProximaNovaSoft-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+       asset-url('ProximaNovaSoft-Bold-webfont.woff') format('woff'),
+       asset-url('ProximaNovaSoft-Bold-webfont.ttf') format('truetype'),
+       asset-url('ProximaNovaSoft-Bold-webfont.svg#ProximaNovaSoftWebBold') format('svg');
+}
+
+@font-face {
+  font-family: 'ProximaNovaRegular';
+  src: asset-url('proximaNova-regular-webfont.eot');
+  src: asset-url('proximaNova-regular-webfont.eot?#iefix') format('embedded-opentype'),
+       asset-url('proximaNova-regular-webfont.woff') format('woff'),
+       asset-url('proximaNova-regular-webfont.ttf') format('truetype'),
+       asset-url('proximaNova-regular-webfont.svg#ProximaNovaSoftWebBold') format('svg');
+}
+
+@font-face {
+  font-family: 'ProximaNovaBold';
+  src: asset-url('proximaNova-bold-webfont.eot');
+  src: asset-url('proximaNova-bold-webfont.eot?#iefix') format('embedded-opentype'),
+       asset-url('proximaNova-bold-webfont.woff') format('woff'),
+       asset-url('proximaNova-bold-webfont.ttf') format('truetype'),
+       asset-url('proximaNova-bold-webfont.svg#ProximaNovaSoftWebBold') format('svg');
+}
+
+@font-face {
+  font-family: 'ProximaNovaItalic';
+  src: asset-url('proximaNova-italic-webfont.eot');
+  src: asset-url('proximaNova-italic-webfont.eot?#iefix') format('embedded-opentype'),
+       asset-url('proximaNova-italic-webfont.woff') format('woff'),
+       asset-url('proximaNova-italic-webfont.ttf') format('truetype'),
+       asset-url('proximaNova-italic-webfont.svg#ProximaNovaSoftWebBold') format('svg');
+}
+
+@font-face {
+  font-family: 'BebasNeue';
+  src: asset-url('BebasNeue-webfont.eot');
+  src: asset-url('BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
+       asset-url('BebasNeue-webfont.woff') format('woff'),
+       asset-url('BebasNeue-webfont.ttf') format('truetype'),
+       asset-url('BebasNeue-webfont.svg#BebasNeue') format('svg');
+}
+
+@font-face {
+  font-family: 'MogoUI';
+  src: asset-url('mogo-ui-lib-webfont.eot');
+  src: asset-url('mogo-ui-lib-webfont.eot?#iefix') format('embedded-opentype'),
+       asset-url('mogo-ui-lib-webfont.woff') format('woff'),
+       asset-url('mogo-ui-lib-webfont.ttf') format('truetype'),
+       asset-url('mogo-ui-lib-webfont.svg#BebasNeue') format('svg');
+}
+
+
+
